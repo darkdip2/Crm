@@ -17,7 +17,7 @@ module.exports = (ticketId, subject, content, emailIds, requester) => {
   };
 
   client.post(
-    "http://localhost:7777/notificationService/api/v1/notification",
+    "https://notificationservicecrmrelevel.onrender.com",
     args,
     function (data, response) {
       console.log(data);
