@@ -20,10 +20,10 @@ db.on("error", () => {
 
 db.once("open", () => {
   console.log("Connected to mongo db");
-  //init();
+  init();
 });
 async function init() {
-  await User.deleteMany({});
+  //await User.deleteMany({});
   var user = await User.findOne({ userType: "ADMIN" });
   if (user) {
     console.log("Admin user already present");
