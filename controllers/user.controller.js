@@ -3,7 +3,12 @@ const convertObject = require("../utils/convertUserObject");
 
 exports.findAll = async (req, res) => {
   try {
-    let users = await User.find();
+    let userStatus=req.params.userStatus,userType=req.params.userType;
+    let users;
+    if(userStatus&&!userType)users = await User.find({userStatus:userStatus});
+    else if(userType&&!userStatus)users=await User.find({userType:userType});
+    else if(userStatus&&userType)users = await User.find({userStatus:userStatus,userType:userType});
+    else users = await User.find();
     if (users) return res.status(200).send(convertObject.userResponse(users));
   } catch (err) {
     res.status(500).send({

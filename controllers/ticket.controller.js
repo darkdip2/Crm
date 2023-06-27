@@ -35,8 +35,8 @@ exports.createTicket = async (req, res) => {
         ticket._id,
         `Ticket with ticketId ${ticket._id} updated and is in status ${ticket.status}`,
         ticket.description,
-        //[user.email, engineer.email],
-        ['diptya99@gmail.com'],
+        [user.email, engineer.email],
+        //['diptya99@gmail.com'],
         ticket.reporter
       );
 
